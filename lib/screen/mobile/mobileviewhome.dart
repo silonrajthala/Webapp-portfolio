@@ -19,41 +19,27 @@ class _MobileHomeViewState extends State<MobileHomeView> {
     setState(() {
       _selectedIndex = index;
     });
-
-    // Navigate to the selected section based on the index
-    // switch (index) {
-    //   case 0:
-    //     // Navigate to Home page
-    //     // Replace this with your navigation logic
-    //    // print('Navigate to Home page');
-    //     break;
-    //   case 1:
-    //     // Navigate to About page
-    //     // Replace this with your navigation logic
-    //    // print('Navigate to About page');
-    //     break;
-    //   case 2:
-    //     // Navigate to Services page
-    //     // Replace this with your navigation logic
-    //    // print('Navigate to Services page');
-    //     break;
-    //   case 3:
-    //     // Navigate to Contact page
-    //     // Replace this with your navigation logic
-    //    // print('Navigate to Contact page');
-    //     break;
-    //   default:
-    //     break;
-    // }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Silon Rajthala'),
+        flexibleSpace: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.black, Colors.grey[400]!],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  // Adjust gradient colors and direction as needed
+                ),
+              ),
+            ),
+        title: Text('Silon Rajthala',style: TextStyle(color: Colors.white,fontFamily: 'Inter'),),
         actions: [
           PopupMenuButton<int>(
+            icon: Icon(Icons.menu),
+            color: Colors.grey[400]!,
             onSelected: _onMenuItemSelected,
             itemBuilder: (BuildContext context) {
               return List<PopupMenuEntry<int>>.generate(
@@ -61,9 +47,21 @@ class _MobileHomeViewState extends State<MobileHomeView> {
                 (index) {
                   return PopupMenuItem<int>(
                     value: index,
-                    child: Text(menuItems[index]),
-                  );
-                },
+                   child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          gradient: LinearGradient(
+                  colors: [Colors.black, Colors.grey[400]!],
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            menuItems[index],
+                            style: TextStyle(color: Colors.white), // Text color
+                          
+              ))));},
               );
             },
           ),

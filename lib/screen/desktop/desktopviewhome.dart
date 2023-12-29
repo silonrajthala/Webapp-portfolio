@@ -21,7 +21,17 @@ class _DesktopHomeViewState extends State<DesktopHomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Silon Rajthala')),
+        flexibleSpace: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.black, Colors.grey[400]!],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  // Adjust gradient colors and direction as needed
+                ),
+              ),
+            ),
+        title: Center(child: Text('Silon Rajthala',style: TextStyle(fontFamily: 'Inter',fontWeight: FontWeight.bold,color: Colors.white),)),
         actions: [
           buildSection('Home'),
           buildSection('About'),
@@ -46,11 +56,11 @@ class _DesktopHomeViewState extends State<DesktopHomeView> {
       },
       child: Text(
         sectionName,
-        style: TextStyle(
+        style: TextStyle(fontSize: 20,fontFamily: 'Inter',
           color: isSelected ? Colors.blue : Colors.black, // Change text color
           fontWeight: isSelected
               ? FontWeight.bold
-              : FontWeight.normal, // Change font weight
+              : FontWeight.w900, // Change font weight
         ),
       ),
     );
@@ -109,6 +119,7 @@ class _DefaultDesktopHomeState extends State<DefaultDesktopHome> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SocialWidget(
+                              
                               placeholderText: '',
                               iconData: SocialIconsFlutter.linkedin,
                               //iconColor: Colors.pink,
@@ -116,6 +127,7 @@ class _DefaultDesktopHomeState extends State<DefaultDesktopHome> {
                               //placeholderStyle: TextStyle(
                               //color: Colors.black,
                               //fontSize: 20),
+                              
                             ),
                             SizedBox(width: 10),
                             SocialWidget(
@@ -147,12 +159,12 @@ class _DefaultDesktopHomeState extends State<DefaultDesktopHome> {
                         Text(
                           "Hi, I,m Silon Rajthala",
                           style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 30,fontWeight: FontWeight.bold
                           ),
                         ),
                         Text(
                           "I'm a Fresher, who loves to coding ",
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
                         )
                       ]),
                 )),

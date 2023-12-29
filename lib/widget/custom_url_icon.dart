@@ -25,7 +25,7 @@ class SocialWidget extends StatelessWidget {
           await launchUrl(uri);
         }
       },
-      child: Icon(iconData),
-    );
+      child:MouseRegion(cursor: SystemMouseCursors.click, child:  Icon(iconData),
+    ));
   }
 }
